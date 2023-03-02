@@ -46,10 +46,11 @@ export default function Home() {
         <img src="/book.png" className={styles.icon} />
         <h3>Let's make a story!</h3>
         <form onSubmit={onSubmit}>
+          <label for="child">Enter your name or names (comma separated)</label>
           <input
             type="text"
             name="child"
-            placeholder="What's your name?"
+            placeholder="e.g., boy named Grayson, dog named Basil"
             value={childInput}
             onChange={(e) => setchildInput(e.target.value)}
           />
