@@ -5,19 +5,22 @@ import styles from "./index.module.css";
 export default function Home() {
   const [childInput, setchildInput] = useState("");
   const [result, setResult] = useState();
+  const [loading, setLoading] = useState(false);
 
   async function onSubmit(event) {
     event.preventDefault();
     try {
+      setLoading(true); // Set loading before sending API request
       const response = await fetch("/api/generate", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ animal: childInput }),
+        body: JSON.stringify({ child: childInput }),
       });
 
       const data = await response.json();
+      setLoading(false); // Stop loading
       if (response.status !== 200) {
         throw data.error || new Error(`Request failed with status ${response.status}`);
       }
@@ -27,6 +30,7 @@ export default function Home() {
     } catch(error) {
       // Consider implementing your own error handling logic here
       console.error(error);
+      setLoading(false); // Stop loading in case of error
       alert(error.message);
     }
   }
@@ -51,7 +55,9 @@ export default function Home() {
           />
           <input type="submit" value="Create story" />
         </form>
-        <div className={styles.result}>{result}</div>
+        <div className={styles.result}>
+          {loading ? <span><img src="/waiting-rabbit.gif" className={styles.loading} /></span> : <>{result}</>}
+        </div>
       </main>
     </div>
   );
