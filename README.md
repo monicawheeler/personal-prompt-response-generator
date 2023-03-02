@@ -14,7 +14,7 @@ This is an example pet name generator app used in the OpenAI API [quickstart tut
 3. Navigate into the project directory
 
    ```bash
-   $ cd openai-quickstart-node
+   $ cd story-builder
    ```
 
 4. Install the requirements
@@ -29,10 +29,12 @@ This is an example pet name generator app used in the OpenAI API [quickstart tut
    ```bash
    $ cp .env.example .env
    ```
+   
    On Windows:
    ```powershell
    $ copy .env.example .env
    ```
+
 6. Add your [API key](https://platform.openai.com/account/api-keys) to the newly created `.env` file
 
 7. Run the app
