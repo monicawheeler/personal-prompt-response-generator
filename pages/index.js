@@ -54,7 +54,7 @@ export default function Home() {
             value={promptInput}
             onChange={(e) => setpromptInput(e.target.value)}
           />
-          <input type="submit" value="Create story" />
+          <input type="submit" value="Get your answer" />
         </form>
         <div className={styles.result}>
           {loading ? <span>
