@@ -3,7 +3,7 @@ import { useState } from "react";
 import styles from "./index.module.css";
 
 export default function Home() {
-  const [childInput, setchildInput] = useState("");
+  const [promptInput, setpromptInput] = useState("");
   const [result, setResult] = useState();
   const [loading, setLoading] = useState(false);
 
@@ -16,7 +16,7 @@ export default function Home() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ child: childInput }),
+        body: JSON.stringify({ prompt: promptInput }),
       });
 
       const data = await response.json();
@@ -26,7 +26,7 @@ export default function Home() {
       }
 
       setResult(data.result);
-      setchildInput("");
+      setpromptInput("");
     } catch(error) {
       // Consider implementing your own error handling logic here
       console.error(error);
@@ -43,16 +43,16 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <img src="/book.png" className={styles.icon} />
-        <h3>Let's make a story!</h3>
+        <h3>Send in your question!</h3>
         <form onSubmit={onSubmit}>
-          <label for="child">Enter your name or names (comma separated)</label>
-          <input
-            type="text"
-            name="child"
-            placeholder="e.g., boy named Grayson, dog named Basil"
-            value={childInput}
-            onChange={(e) => setchildInput(e.target.value)}
+          <label for="prompt">Enter your prompt</label>
+          <textarea
+            rows="5"
+            cols="33"
+            name="prompt"
+            placeholder="e.g., What is the best way to write a unit test in JavaScript"
+            value={promptInput}
+            onChange={(e) => setpromptInput(e.target.value)}
           />
           <input type="submit" value="Create story" />
         </form>

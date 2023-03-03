@@ -15,11 +15,11 @@ export default async function (req, res) {
     return;
   }
 
-  const child = req.body.child || '';
-  if (child.trim().length === 0) {
+  const prompt = req.body.prompt || '';
+  if (prompt.trim().length === 0) {
     res.status(400).json({
       error: {
-        message: "Please enter a valid child",
+        message: "Please enter a valid prompt",
       }
     });
     return;
@@ -28,7 +28,7 @@ export default async function (req, res) {
   try {
     const completion = await openai.createCompletion({
       model: "text-davinci-003",
-      prompt: generatePrompt(child),
+      prompt: generatePrompt(prompt),
       temperature: 0.9,
       max_tokens: 4000,
     });
@@ -49,6 +49,6 @@ export default async function (req, res) {
   }
 }
 
-function generatePrompt(focusChild) {
-  return `Create a children's story aimed at children between the ages of 5-7. It must include silly adventures. You will come up with entertaining stories that are engaging, imaginative and captivating. It should have the following characters: ${focusChild}. It should be broken into logical paragraphs.`;
+function generatePrompt(focusPrompt) {
+  return `${focusPrompt}`;
 }
