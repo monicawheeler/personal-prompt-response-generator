@@ -83,7 +83,23 @@
     max-width: 50%;
   }
 }
+@keyframes rotation {
+  from {
+    transform: rotate(359deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
 
-.loading {
-  height: 200px;
+.loader * {
+  transform-origin: 50% 50%;
+}
+
+.loaderCircle {
+  animation: rotation 8s infinite linear;
+}
+
+.loaderCircle_s {
+  animation: rotation 4s infinite linear;
 }

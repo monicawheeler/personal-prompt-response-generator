@@ -49,8 +49,6 @@ export default async function (req, res) {
   }
 }
 
-function generatePrompt(child) {
-  const focusChild =
-    child[0].toUpperCase() + child.slice(1).toLowerCase();
-  return `Generate a children's story aimed at children between the ages of 5-7. It must include silly adventures. It should be imaginative. It should have the following characters: ${focusChild}. It should be broken into logical paragraphs.`;
+function generatePrompt(focusChild) {
+  return `Create a children's story aimed at children between the ages of 5-7. It must include silly adventures. You will come up with entertaining stories that are engaging, imaginative and captivating. It should have the following characters: ${focusChild}. It should be broken into logical paragraphs.`;
 }
