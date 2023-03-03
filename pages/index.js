@@ -39,7 +39,7 @@ export default function Home() {
     <div>
       <Head>
         <title>Prompt Answererer</title>
-        <link rel="icon" href="/book.png" />
+        <link rel="icon" href="/magnify.png" />
       </Head>
 
       <main className={styles.main}>
