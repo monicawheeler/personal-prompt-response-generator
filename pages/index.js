@@ -38,7 +38,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Story Builder</title>
+        <title>Prompt Answererer</title>
         <link rel="icon" href="/book.png" />
       </Head>
 
